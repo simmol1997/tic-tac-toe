@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Tic Tac Toe</title>
+  	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+		<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+
+	</head>
+	<body>
+
+    <div class="container">
+
+      <div id="menu" class="game-container">
+        <div class="game-row">
+          <div class="menu-item">
+            Choose your playstyle!
+          </div>
+        </div>
+        <div class="game-row">
+          <div class="menu-item">
+            <button class="btn player" id="1player">
+              1 Player
+            </button>
+            <button class="btn player" id="2player">
+              2 Players
+            </button>
+          </div>
+        </div>
+        <div class="game-row">
+          <div class="menu-item">
+            <button class="btn side" id="o">
+              O
+            </button>
+            <button class="btn side" id="x">
+              X
+            </button>
+          </div>
+        </div>
+        <div class="game-row">
+          <div class="menu-item">
+            <button id="play" class="btn">
+              Play
+            </button>
+          </div>
+        </div>
+      </div><!-- Menu -->
+
+      <div id="game" class="game-container">
+        <div class="game-row">
+          <div id="square1" class="square">
+          </div>
+          <div id="square2" class="square">
+          </div>
+          <div id="square3" class="square">
+          </div>
+        </div>
+        <div class="game-row">
+          <div id="square4" class="square">
+          </div>
+          <div id="square5" class="square">
+          </div>
+          <div id="square6" class="square">
+          </div>
+        </div>
+        <div class="game-row">
+          <div id="square7" class="square">
+          </div>
+          <div id="square8" class="square">
+          </div>
+          <div id="square9" class="square">
+          </div>
+        </div>
+      </div><!-- game -->
+
+			<div id="game-over-screen" class="game-container">
+				<div class="menu-item">
+					<div id="end-text">
+					</div>
+					<button class="btn">
+						Play again?
+					</button>
+					<button class="btn">
+						Menu
+					</button>
+				</div>
+			</div>
+
+    </div>
+
+  </body>
+</html>
