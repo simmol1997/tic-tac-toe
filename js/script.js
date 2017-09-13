@@ -24,16 +24,40 @@ $(document).ready(function() {
     $(this).addClass("active");
   });
 
-  $("#play").on("click", startGame);
+  $("#play").click(startGame);
     /* --- menu end */
 
+    /* Game */
   $(".square").click(function() {
     makeMove(this);
   });
+    /* ------ */
+
+    /* End screen */
+  $("#reset").click(startGame);
+
+  $("#back-to-menu").click(function() {
+    $("#game-over-screen").fadeTo(300, 0, function() {
+      $("#game-over-screen").css({"display": "none"});
+      $("#menu").css({
+        "display": "-webkit-flex",
+        "display": "flex"
+      });
+      $("#menu").fadeTo(300, 1);
+    });
+    $(".active").removeClass("active"); // Resets the menu screen
+    computer = null;
+    human = null;
+    playerTurn = null;
+  });
+    /* ------- */
   /* ------------- */
 });
 
 function startGame() {
+  //Begins by resetting the game
+  $(".square").html("");
+
   var choices = $(".active");
   playerTurn = "O";
 
@@ -53,14 +77,22 @@ function startGame() {
   }
 
   //Next we enter the game mode
-  $("#menu").fadeTo(300, 0, function() {
-    $("#menu").css({"display": "none"});
+  $("#menu, #game-over-screen").fadeTo(300, 0, function() {
+    $("#menu, #game-over-screen").css({"display": "none"});
     $("#game").css({
       "display": "-webkit-flex",
       "display": "flex"
     });
     $("#game").fadeTo(300, 1);
   });
+
+  if(computer == playerTurn) {
+    //The computer starts the game
+    var board = getBoard();
+    var bestMove = minimax(board, computer).index + 1; // Adds one since the index of squares starts on one
+    $("#square" + bestMove).html("<div class='xo'>" + playerTurn + "</div>");
+    nextTurn();
+  }
 }
 
 function makeMove(square) {
@@ -130,7 +162,7 @@ function getBoard() {
 }
 
 function minimax(board, player) {
-  let avail = availableSquares(board);
+  var avail = availableSquares(board);
   if (isWin(board, human)) {
     return {
       score: -10

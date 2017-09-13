@@ -57,3 +57,10 @@ body {
   margin: auto;
   font-size: 40px;
 }
+
+@media screen and (max-width: 767px) {
+  .game-container {
+    width: 100vw;
+    height: 100vw;
+  }
+}
